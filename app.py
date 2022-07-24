@@ -19,7 +19,8 @@ app = Flask(__name__)
 PATH = 'dataset/'
 #Chargement des données 
 
-data = pd.read_csv('dataset/test_dataframe.csv')
+# data = pd.read_csv('dataset/test_dataframe.csv')
+data = pd.read_parquet(PATH+'test_df.parquet')
 print('la taille de Dataframe est = ', data.shape)
 
 data.drop(columns = {'Unnamed: 0'}  , inplace = True)
