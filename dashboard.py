@@ -53,7 +53,7 @@ html_temp = """
 
 check_box2 = st.sidebar.checkbox(label = 'Description du projet')
 if (check_box2):
-    st.image('images/entreprise.png') 
+    st.image('images/entreprise.PNG') 
         
     #st.title('Implémentez un modèle de scoring')
     st.write('''
