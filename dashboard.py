@@ -1,8 +1,9 @@
 ## Importation des library importants 
+import streamlit as st
 import numpy as np
 import pandas as pd
 
-import seaborn as sns
+## # import seaborn as sns
 import pickle
 import time
 import shap
@@ -11,7 +12,7 @@ from urllib.request import urlopen
 import json
 import requests
 import plotly.graph_objects as go 
-import streamlit as st
+
 from sklearn.neighbors import NearestNeighbors
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.impute import SimpleImputer
