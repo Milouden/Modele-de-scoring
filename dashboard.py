@@ -1,7 +1,7 @@
 ## Importation des library importants 
 import numpy as np
 import pandas as pd
-import matplotlib.pyplot as plt
+
 import seaborn as sns
 import pickle
 import time
@@ -15,8 +15,9 @@ import streamlit as st
 from sklearn.neighbors import NearestNeighbors
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.impute import SimpleImputer
-#import display_client_info as display_client_info
+import display_client_info as display_client_info
 import warnings
+import matplotlib.pyplot as plt
 warnings.filterwarnings("ignore")
 ## # Implémentez un modèle de scoring
 
