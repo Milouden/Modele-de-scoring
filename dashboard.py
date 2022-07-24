@@ -36,7 +36,7 @@ body {
 
 
 
-st.title('Implémentez un modèle de scoring')
+st.title('Implémentation d''un modèle de scoring')
 ##st.image('images/entreprise.png') 
 
 
@@ -303,7 +303,7 @@ def main() :
         Evaluation_metric = st.checkbox("Métriques d'évaluation")
         show_metric_model = st.checkbox("Etude comparative Aux autres Clients") 
         # show_client_comparison = st.checkbox("Comparer aux autres clients")
-        shap_general = st.checkbox("Features importantes globale")
+        shap_general = st.checkbox("Features importantes globales")
         if(st.sidebar.checkbox("Description des features")):
             list_features = description.index.to_list()
             list_features = list(dict.fromkeys(list_features))
@@ -347,7 +347,7 @@ def main() :
     ## seuil_risque = st.sidebar.slider("Seuil de Résolution", min_value=0.0, max_value=1.0, value=0.5, step=0.01)
     def show_overview():
         st.title("Risque")
-        risque_threshold = st.slider(label = 'Seuil de risque', min_value = 0.0,
+        risque_threshold = st.slider(label = 'Le seuil de risque', min_value = 0.0,
                         max_value = 1.0 ,
                          value = 0.5,
                          step = 0.1)
@@ -576,17 +576,17 @@ def main() :
 
         if (show_credit_decision):
             st.header('‍⚖️ Scoring et décision du modèle')
-            risque_threshold = st.slider(label = 'Seuil de risque', min_value = 0.0,
+            risque_threshold = st.slider(label = 'Le seuil de risque', min_value = 0.0,
                                          max_value = 1.0 ,
                                          value = 0.5,
                                           step = 0.1)
-            st.write(' La seuille est : ',risque_threshold)
-            seuil_risque = st.sidebar.slider("Seuil de Résolution", 
+            st.write(' Le seuil est : ',risque_threshold)
+            seuil_risque = st.sidebar.slider("Le seuil de Résolution", 
                                              min_value=0.0, 
                                              max_value=1.0, 
                                              value=0.5, 
                                              step=0.01)
-            #st.write(' La seuille est : ',risque_threshold)
+            #st.write(' Le seuil est : ',risque_threshold)
             ##########################################################################################
             # df_sample2 = df.sample(100)
             # arr = np.random.normal(1, 1, size=100)
