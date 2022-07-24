@@ -2,22 +2,22 @@
 import numpy as np
 import pandas as pd
 
-import seaborn as sns
-import pickle
-import time
-import shap
-import math
-from urllib.request import urlopen
-import json
-import requests
-import plotly.graph_objects as go 
-import streamlit as st
-from sklearn.neighbors import NearestNeighbors
-from sklearn.neighbors import KNeighborsClassifier
-from sklearn.impute import SimpleImputer
-import display_client_info as display_client_info
-import warnings
-import matplotlib.pyplot as plt
+## import seaborn as sns
+## import pickle
+## import time
+## import shap
+## import math
+## from urllib.request import urlopen
+## import json
+## import requests
+## import plotly.graph_objects as go 
+## import streamlit as st
+## from sklearn.neighbors import NearestNeighbors
+## from sklearn.neighbors import KNeighborsClassifier
+## from sklearn.impute import SimpleImputer
+## import display_client_info as display_client_info
+## import warnings
+## import matplotlib.pyplot as plt
 warnings.filterwarnings("ignore")
 ## # Implémentez un modèle de scoring
 
