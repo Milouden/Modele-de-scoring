@@ -3,7 +3,7 @@ import streamlit as st
 import numpy as np
 import pandas as pd
 
-## # import seaborn as sns
+import seaborn as sns
 import pickle
 import time
 import shap
