@@ -12,7 +12,6 @@ from urllib.request import urlopen
 import json
 import requests
 import plotly.graph_objects as go 
-
 from sklearn.neighbors import NearestNeighbors
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.impute import SimpleImputer
@@ -598,7 +597,7 @@ def main() :
             ##########################################################################################
             #Appel de l'API : 
 
-            API_url = "http://127.0.0.1:5000/credit/" + str(id_client)
+            API_url = "http://127.0.0.1:5000/prediction_credit/" + str(id_client)
 
             with st.spinner('Chargement du score du client...'):
                 json_url = urlopen(API_url)
