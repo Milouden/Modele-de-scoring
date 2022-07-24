@@ -23,7 +23,7 @@ PATH = 'dataset/'
 data = pd.read_parquet(PATH+'test_df.parquet')
 print('la taille de Dataframe est = ', data.shape)
 
-data.drop(columns = {'Unnamed: 0'}  , inplace = True)
+#data.drop(columns = {'Unnamed: 0'}  , inplace = True)
 
 print('la taille de la nouvelle Dataframe est = ', data.shape)
 #Chargement du modèle
