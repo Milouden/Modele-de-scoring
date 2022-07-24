@@ -18,7 +18,7 @@ import pandas as pd
 ## import display_client_info as display_client_info
 ## import warnings
 ## import matplotlib.pyplot as plt
-warnings.filterwarnings("ignore")
+##warnings.filterwarnings("ignore")
 ## # Implémentez un modèle de scoring
 
 ###########################################################################################################################################
