@@ -15,7 +15,7 @@ import streamlit as st
 from sklearn.neighbors import NearestNeighbors
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.impute import SimpleImputer
-import display_client_info as display_client_info
+#import display_client_info as display_client_info
 import warnings
 warnings.filterwarnings("ignore")
 ## # Implémentez un modèle de scoring
