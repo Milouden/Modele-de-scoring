@@ -3,7 +3,7 @@ import streamlit as st
 import numpy as np
 import pandas as pd
 
-import seaborn as sns
+## # import seaborn as sns
 import pickle
 import time
 import shap
@@ -12,6 +12,7 @@ from urllib.request import urlopen
 import json
 import requests
 import plotly.graph_objects as go 
+
 from sklearn.neighbors import NearestNeighbors
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.impute import SimpleImputer
@@ -20,8 +21,6 @@ import warnings
 import matplotlib.pyplot as plt
 warnings.filterwarnings("ignore")
 ## # Implémentez un modèle de scoring
-
-import app as app
 
 ###########################################################################################################################################
 ###########################################################################################################################################
@@ -38,7 +37,7 @@ body {
 
 
 
-st.title('Implémentation d''un modèle de scoring')
+st.title('Implémentez un modèle de scoring')
 ##st.image('images/entreprise.png') 
 
 
@@ -54,7 +53,7 @@ html_temp = """
 
 check_box2 = st.sidebar.checkbox(label = 'Description du projet')
 if (check_box2):
-    st.image('images/entreprise.PNG') 
+    st.image('images/entreprise.png') 
         
     #st.title('Implémentez un modèle de scoring')
     st.write('''
@@ -305,7 +304,7 @@ def main() :
         Evaluation_metric = st.checkbox("Métriques d'évaluation")
         show_metric_model = st.checkbox("Etude comparative Aux autres Clients") 
         # show_client_comparison = st.checkbox("Comparer aux autres clients")
-        shap_general = st.checkbox("Features importantes globales")
+        shap_general = st.checkbox("Features importantes globale")
         if(st.sidebar.checkbox("Description des features")):
             list_features = description.index.to_list()
             list_features = list(dict.fromkeys(list_features))
@@ -349,7 +348,7 @@ def main() :
     ## seuil_risque = st.sidebar.slider("Seuil de Résolution", min_value=0.0, max_value=1.0, value=0.5, step=0.01)
     def show_overview():
         st.title("Risque")
-        risque_threshold = st.slider(label = 'Le seuil de risque', min_value = 0.0,
+        risque_threshold = st.slider(label = 'Seuil de risque', min_value = 0.0,
                         max_value = 1.0 ,
                          value = 0.5,
                          step = 0.1)
@@ -578,17 +577,17 @@ def main() :
 
         if (show_credit_decision):
             st.header('‍⚖️ Scoring et décision du modèle')
-            risque_threshold = st.slider(label = 'Le seuil de risque', min_value = 0.0,
+            risque_threshold = st.slider(label = 'Seuil de risque', min_value = 0.0,
                                          max_value = 1.0 ,
                                          value = 0.5,
                                           step = 0.1)
-            st.write(' Le seuil est : ',risque_threshold)
-            seuil_risque = st.sidebar.slider("Le seuil de Résolution", 
+            st.write(' La seuille est : ',risque_threshold)
+            seuil_risque = st.sidebar.slider("Seuil de Résolution", 
                                              min_value=0.0, 
                                              max_value=1.0, 
                                              value=0.5, 
                                              step=0.01)
-            #st.write(' Le seuil est : ',risque_threshold)
+            #st.write(' La seuille est : ',risque_threshold)
             ##########################################################################################
             # df_sample2 = df.sample(100)
             # arr = np.random.normal(1, 1, size=100)
@@ -599,8 +598,9 @@ def main() :
             ##########################################################################################
             #Appel de l'API : 
 
-            API_url = "http://127.0.0.1:5000/prediction_credit/" + str(id_client)
-
+            ##API_url = "http://127.0.0.1:5000/credit/" + str(id_client)
+            #https://milouden-api-scoring-model-app-rklb1w.streamlitapp.com/
+            API_url = "https://milouden-api-scoring-model-app-rklb1w.streamlitapp.com/prediction_credit" + str(id_client)  # credit/"
             with st.spinner('Chargement du score du client...'):
                 json_url = urlopen(API_url)
 
