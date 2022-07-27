@@ -301,8 +301,8 @@ def main() :
         show_client_details = st.checkbox("Informations fondamentales du client" , value = False)
         ##show_client_suplemntaryinfo = st.checkbox("les informations supplémentaires")
         show_credit_decision = st.checkbox("Décision de crédit")
-        show_credit_model = st.checkbox("Modèle de décision")
-        Evaluation_metric = st.checkbox("Métriques d'évaluation")
+        #show_credit_model = st.checkbox("Modèle de décision")
+        #Evaluation_metric = st.checkbox("Métriques d'évaluation")
         show_metric_model = st.checkbox("Etude comparative Aux autres Clients") 
         # show_client_comparison = st.checkbox("Comparer aux autres clients")
         shap_general = st.checkbox("Features importantes globale")
@@ -910,18 +910,18 @@ def main() :
 ###########################################################################################################################################
 ###########################################################################################################################################
 ###########################################################################################################################################
-        if (show_credit_model):
-            st.title("Matrice de confusion et modèle")
-            sidebar_selection = st.radio(
-                'Séléctionner le modèle:',
-                ['Dummyclassifier', 'LGBM', 'RandomForest','Logistic_regression'],
-                )
-            if sidebar_selection == 'Dummyclassifier':
-                st.header('‍Dummyclassifier')
-                st.image('images/Dummyclassifier.png')
-            if sidebar_selection == 'LGBM':
-                st.header('‍LGBM')
-                st.image('images/LGBM.png')
+        ######if (show_credit_model):
+        ######    st.title("Matrice de confusion et modèle")
+        ######    sidebar_selection = st.radio(
+        ######        'Séléctionner le modèle:',
+        ######        ['Dummyclassifier', 'LGBM', 'RandomForest','Logistic_regression'],
+        ######        )
+        ######    if sidebar_selection == 'Dummyclassifier':
+        ######        st.header('‍Dummyclassifier')
+        ######        st.image('images/Dummyclassifier.png')
+        ######    if sidebar_selection == 'LGBM':
+        ######        st.header('‍LGBM')
+        ######        st.image('images/LGBM.png')
             
 ###########################################################################################################################################
 ###########################################################################################################################################
@@ -937,24 +937,24 @@ def main() :
 ###########################################################################################################################################
 
 
-        if (Evaluation_metric):
-            st.title("Liste des métriques")
-            sidebar_selection = st.radio(
-                'Séléctionner parametre:',
-                ['AUC_test', 'F2_Score', 'Temps_execution','Recall'],
-                )
-            if sidebar_selection == 'AUC_test':
-                st.header('‍AUC_TEST')
-                st.image('images/AUC_TEST.png')
-            if sidebar_selection == 'F2_Score':
-                st.header('‍F2_Score')
-                st.image('images/F2_Score.png')
-            if sidebar_selection == 'Temps_execution':
-                st.header('‍Temps_execution')
-                st.image('images/Temps_execution.png')
-            if sidebar_selection == 'Recall':
-                st.header('‍Recall')
-                st.image('images/Recall.png')            
+        ######if (Evaluation_metric):
+        ######    st.title("Liste des métriques")
+        ######    sidebar_selection = st.radio(
+        ######        'Séléctionner parametre:',
+        ######        ['AUC_test', 'F2_Score', 'Temps_execution','Recall'],
+        ######        )
+        ######    if sidebar_selection == 'AUC_test':
+        ######        st.header('‍AUC_TEST')
+        ######        st.image('images/AUC_TEST.png')
+        ######    if sidebar_selection == 'F2_Score':
+        ######        st.header('‍F2_Score')
+        ######        st.image('images/F2_Score.png')
+        ######    if sidebar_selection == 'Temps_execution':
+        ######        st.header('‍Temps_execution')
+        ######        st.image('images/Temps_execution.png')
+        ######    if sidebar_selection == 'Recall':
+        ######        st.header('‍Recall')
+        ######        st.image('images/Recall.png')            
           ##   st.header('‍AUC_TEST')
           ##   st.image('images/AUC_TEST.png')
         
