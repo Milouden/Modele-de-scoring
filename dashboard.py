@@ -600,10 +600,14 @@ def main() :
             #Appel de l'API : 
 
             #API_url = "http://127.0.0.1:5000/credit/" + str(id_client)
-            API_url = "https://heroku-api-model-scoring-ds.herokuapp.com/credit"+ str(id_client)
+            API_url = "https://heroku-api-model-scoring-ds.herokuapp.com/credit/"+ str(id_client)
+            
             #API_url = "https://heroku-api-model-scoring-ds.herokuapp.com/prediction_credit"+ str(id_client)
             #API_url = "http://127.0.0.1:5000/credit/" + str(id_client)
             ##API_url = "https://milouden-api-scoring-model-app-rklb1w.streamlitapp.com/prediction_credit" + str(id_client)  # credit/"
+           
+            
+            
             with st.spinner('Chargement du score du client...'):
                 json_url = urlopen(API_url)
 
