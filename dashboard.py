@@ -53,7 +53,7 @@ html_temp = """
 
 check_box2 = st.sidebar.checkbox(label = 'Description du projet')
 if (check_box2):
-    st.image('images/entreprise.png') 
+    st.image('images/entreprise.PNG') 
         
     #st.title('Implémentez un modèle de scoring')
     st.write('''
@@ -587,6 +587,7 @@ def main() :
                                              max_value=1.0, 
                                              value=0.5, 
                                              step=0.01)
+            
             #st.write(' La seuille est : ',risque_threshold)
             ##########################################################################################
             # df_sample2 = df.sample(100)
@@ -598,9 +599,10 @@ def main() :
             ##########################################################################################
             #Appel de l'API : 
 
-            ##API_url = "http://127.0.0.1:5000/credit/" + str(id_client)
-            #https://milouden-api-scoring-model-app-rklb1w.streamlitapp.com/
-            API_url = "https://milouden-api-scoring-model-app-rklb1w.streamlitapp.com/prediction_credit" + str(id_client)  # credit/"
+            #API_url = "http://127.0.0.1:5000/credit/" + str(id_client)
+            API_url = "https://heroku-api-model-scoring-ds.herokuapp.com/prediction_credit"+ str(id_client)
+            #API_url = "http://127.0.0.1:5000/credit/" + str(id_client)
+            ##API_url = "https://milouden-api-scoring-model-app-rklb1w.streamlitapp.com/prediction_credit" + str(id_client)  # credit/"
             with st.spinner('Chargement du score du client...'):
                 json_url = urlopen(API_url)
 
