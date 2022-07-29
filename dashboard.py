@@ -228,7 +228,7 @@ def main() :
             fig2.update_layout(title_text='TYPE DE CONTRAT', title_x=0.4)
             fig2.update_layout(legend_traceorder="reversed")
             fig2.show()
-            st.pyplot(fig1 ,fig2 )
+            st.pyplot(fig1)
         else:
             st.write("Comparaison impossible car la valeur de cette variable n'est pas renseignée (NaN)")
             
