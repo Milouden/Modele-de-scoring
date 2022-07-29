@@ -212,23 +212,7 @@ def main() :
             if(label_rotation):
                 s.set_xticklabels(s.get_xticklabels(),rotation=90)
 
-                
-            # 2. Subplot 2: Percentage of defaulters within the categorical column
-            df = df_application_train.groupby(by=["TARGET", feature]).size().reset_index(name="counts")
-            #df = df.groupby(by=["Name", "Defect severity"]).size().reset_index(name="counts")
-            fig2 = px.bar(data_frame=df, x="TARGET", y="counts", #color = 'counts' , 
-            color=feature, barmode="group",
-            opacity=0.8, orientation='v', title='TYPE DE CONTRAT',
-            labels={'x': 'Type de contrat', 'y':'Count'}
-            #color="NAME_CONTRACT_TYPE",# legend = ['Remboursé','Défaillant'],
-            # labels={"sex": "Gender", "smoker": "Smokes"},
-            #base=[0,10 , 20 , 50], error_y=[5,10 , 15 , 20], 
-            )
-            # order of legend is reversed
-            fig2.update_layout(title_text='TYPE DE CONTRAT', title_x=0.4)
-            fig2.update_layout(legend_traceorder="reversed")
-            fig2.show()
-            st.pyplot(fig)
+
         else:
             st.write("Comparaison impossible car la valeur de cette variable n'est pas renseignée (NaN)")
             
@@ -572,12 +556,12 @@ def main() :
         #-------------------------------------------------------
 
         if (show_credit_decision):
-            st.header('‍⚖️ Scoring et décision du modèle')
+            st.header('‍ Scoring et décision du modèle')
             risque_threshold = st.slider(label = 'Seuil de risque', min_value = 0.0,
                                          max_value = 1.0 ,
                                          value = 0.5,
                                           step = 0.1)
-            st.write(' La seuille est : ',risque_threshold)
+            st.write(' L seuil est : ',risque_threshold)
             seuil_risque = st.sidebar.slider("Seuil de Résolution", 
                                              min_value=0.0, 
                                              max_value=1.0, 
