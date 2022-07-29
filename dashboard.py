@@ -182,20 +182,13 @@ def main() :
             cat_perc["TARGET"] = cat_perc["TARGET"]*100
             cat_perc.sort_values(by='TARGET', ascending=False, inplace=True)
 
-            if(horizontal_layout):
-                fig, (ax1, ax2) = plt.subplots(ncols=2, figsize=(12,5))
-            else:
-                fig, (ax1, ax2) = plt.subplots(nrows=2, figsize=(20,24))
+            ####if(horizontal_layout):
+            ####    fig, (ax1, ax2) = plt.subplots(ncols=2, figsize=(12,5))
+            ####else:
+            ####    fig, (ax1, ax2) = plt.subplots(nrows=2, figsize=(20,24))
 
                 
-                
-                
-                
-                
-                
-                
-                
-                
+     
                 
             # 1. Subplot 1: Count plot of categorical column
             # sns.set_palette("Set2")
@@ -205,12 +198,12 @@ def main() :
             fig1.show()
 
             # If the plot is not readable, use the log scale.
-            if ylog:
-                ax1.set_yscale('log')
-                ax1.set_ylabel("Count (log)",fontdict={'fontsize' : 15, \
-                                                       'fontweight' : 'bold'})   
-            if(label_rotation):
-                s.set_xticklabels(s.get_xticklabels(),rotation=90)
+            ####if ylog:
+            ####    ax1.set_yscale('log')
+            ####    ax1.set_ylabel("Count (log)",fontdict={'fontsize' : 15, \
+            ####                                           'fontweight' : 'bold'})   
+            ####if(label_rotation):
+            ####    s.set_xticklabels(s.get_xticklabels(),rotation=90)
 
             #####################################################################3
             # 2. Subplot 2: Percentage of defaulters within the categorical column
@@ -228,7 +221,7 @@ def main() :
             fig2.update_layout(title_text='TYPE DE CONTRAT', title_x=0.4)
             fig2.update_layout(legend_traceorder="reversed")
             fig2.show()
-            st.pyplot(fig1)
+            #st.pyplot(fig1)
         else:
             st.write("Comparaison impossible car la valeur de cette variable n'est pas renseignée (NaN)")
             
