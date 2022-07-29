@@ -219,7 +219,7 @@ def main() :
             fig2.update_layout(legend_traceorder="reversed")
             fig2.show()
             st.plotly_chart(fig1 , fig2 , use_container_width=True)
-            #st.pyplot(fig1)
+            #st.pyplot(fig1 , fig2)
         else:
             st.write("Comparaison impossible car la valeur de cette variable n'est pas renseignée (NaN)")
             
