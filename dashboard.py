@@ -3,7 +3,7 @@ import streamlit as st
 import numpy as np
 import pandas as pd
 import seaborn as sns
-
+import plotly.express as px
 ## # import seaborn as sns
 import pickle
 import time
@@ -187,23 +187,22 @@ def main() :
             else:
                 fig, (ax1, ax2) = plt.subplots(nrows=2, figsize=(20,24))
 
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
             # 1. Subplot 1: Count plot of categorical column
             # sns.set_palette("Set2")
-            s = sns.countplot(ax=ax1, 
-                            x = feature, 
-                            data=applicationDF,
-                            hue ="TARGET",
-                            order=cat_perc[feature],
-                            palette=['g','r'])
-
-            pos1 = cat_perc[feature].tolist().index(client_feature_val.iloc[0])
-            #st.write(client_feature_val.iloc[0])
-
-            # Define common styling
-            ax1.set(ylabel = "Nombre de clients")
-            ax1.set_title(titre, fontdict={'fontsize' : 15, 'fontweight' : 'bold'})   
-            ax1.axvline(int(pos1), color="blue", linestyle='--', label = 'Position Client')
-            ax1.legend(['Position Client','Remboursé','Défaillant' ])
+            fig1 = px.histogram(df_application_train, x=feature, color = 'NAME_CONTRACT_TYPE' ,) #  barmode='group' ,
+            fig1.update_layout(title_text='TYPE DE CONTRAT', title_x=0.4)
+            fig1.update_layout(legend_traceorder="reversed")
+            fig1.show()
 
             # If the plot is not readable, use the log scale.
             if ylog:
@@ -213,26 +212,22 @@ def main() :
             if(label_rotation):
                 s.set_xticklabels(s.get_xticklabels(),rotation=90)
 
+                
             # 2. Subplot 2: Percentage of defaulters within the categorical column
-            s = sns.barplot(ax=ax2, 
-                            x = feature, 
-                            y='TARGET', 
-                            order=cat_perc[feature], 
-                            data=cat_perc,
-                            palette='Set2')
-
-            pos2 = cat_perc[feature].tolist().index(client_feature_val.iloc[0])
-            #st.write(pos2)
-
-            if(label_rotation):
-                s.set_xticklabels(s.get_xticklabels(),rotation=90)
-            plt.ylabel('Pourcentage de défaillants [%]', fontsize=10)
-            plt.tick_params(axis='both', which='major', labelsize=10)
-            ax2.set_title(titre+" (% Défaillants)", \
-                          fontdict={'fontsize' : 15, 'fontweight' : 'bold'})
-            ax2.axvline(int(pos2), color="blue", linestyle='--', label = 'Position Client')
-            ax2.legend()
-            plt.show()
+            df = df_application_train.groupby(by=["TARGET", feature]).size().reset_index(name="counts")
+            #df = df.groupby(by=["Name", "Defect severity"]).size().reset_index(name="counts")
+            fig2 = px.bar(data_frame=df, x="TARGET", y="counts", #color = 'counts' , 
+            color=feature, barmode="group",
+            opacity=0.8, orientation='v', title='TYPE DE CONTRAT',
+            labels={'x': 'Type de contrat', 'y':'Count'}
+            #color="NAME_CONTRACT_TYPE",# legend = ['Remboursé','Défaillant'],
+            # labels={"sex": "Gender", "smoker": "Smokes"},
+            #base=[0,10 , 20 , 50], error_y=[5,10 , 15 , 20], 
+            )
+            # order of legend is reversed
+            fig2.update_layout(title_text='TYPE DE CONTRAT', title_x=0.4)
+            fig2.update_layout(legend_traceorder="reversed")
+            fig2.show()
             st.pyplot(fig)
         else:
             st.write("Comparaison impossible car la valeur de cette variable n'est pas renseignée (NaN)")
