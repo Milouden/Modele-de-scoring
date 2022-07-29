@@ -212,7 +212,7 @@ def main() :
             if(label_rotation):
                 s.set_xticklabels(s.get_xticklabels(),rotation=90)
 
-                
+            #####################################################################3
             # 2. Subplot 2: Percentage of defaulters within the categorical column
             df = applicationDF.groupby(by=["TARGET", feature]).size().reset_index(name="counts")
             #df = df.groupby(by=["Name", "Defect severity"]).size().reset_index(name="counts")
@@ -228,7 +228,7 @@ def main() :
             fig2.update_layout(title_text='TYPE DE CONTRAT', title_x=0.4)
             fig2.update_layout(legend_traceorder="reversed")
             fig2.show()
-            st.pyplot(fig)
+            st.pyplot(fig1 ,fig2 )
         else:
             st.write("Comparaison impossible car la valeur de cette variable n'est pas renseignée (NaN)")
             
