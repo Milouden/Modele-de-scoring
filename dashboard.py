@@ -187,9 +187,6 @@ def main() :
             ####else:
             ####    fig, (ax1, ax2) = plt.subplots(nrows=2, figsize=(20,24))
 
-                
-     
-                
             # 1. Subplot 1: Count plot of categorical column
             # sns.set_palette("Set2")
             fig1 = px.histogram(applicationDF, x=feature, color = 'NAME_CONTRACT_TYPE' ,) #  barmode='group' ,
@@ -221,6 +218,7 @@ def main() :
             fig2.update_layout(title_text='TYPE DE CONTRAT', title_x=0.4)
             fig2.update_layout(legend_traceorder="reversed")
             fig2.show()
+            st.plotly_chart(fig1 , fig2 , use_container_width=True)
             #st.pyplot(fig1)
         else:
             st.write("Comparaison impossible car la valeur de cette variable n'est pas renseignée (NaN)")
