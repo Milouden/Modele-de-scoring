@@ -166,7 +166,7 @@ def main() :
 ###########################################################################################################################################
     #@st.cache
     def univariate_categorical(applicationDF,feature,client_feature_val,\
-                               titre,ylog=False,label_rotation=False,
+                               title_text,ylog=False,label_rotation=False,
                                horizontal_layout=True):
         if (client_feature_val.iloc[0] != np.nan):
 
@@ -189,8 +189,8 @@ def main() :
 
             # 1. Subplot 1: Count plot of categorical column
             # sns.set_palette("Set2")
-            fig1 = px.histogram(applicationDF, x=feature, color = 'NAME_CONTRACT_TYPE' ,) #  barmode='group' ,
-            fig1.update_layout(title_text='TYPE DE CONTRAT', title_x=0.4)
+            fig1 = px.histogram(applicationDF, x=feature, color = feature ,) #  barmode='group' ,
+            fig1.update_layout(title_text=feature, title_x=0.4)
             fig1.update_layout(legend_traceorder="reversed")
             fig1.show()
 
@@ -215,10 +215,13 @@ def main() :
             #base=[0,10 , 20 , 50], error_y=[5,10 , 15 , 20], 
             )
             # order of legend is reversed
-            fig2.update_layout(title_text='TYPE DE CONTRAT', title_x=0.4)
+            fig2.update_layout(title_text=feature, title_x=0.4)
+            #fig2.update_layout(title_text, title_x=0.4)
             fig2.update_layout(legend_traceorder="reversed")
             fig2.show()
-            st.plotly_chart(fig1 , fig2 , use_container_width=True)
+            st.plotly_chart(fig2,use_container_width=True)
+            #st.plotly_chart(fig1 , fig2 , use_container_width=True)
+            st.plotly_chart(fig1 ,use_container_width=True)
             #st.pyplot(fig1 , fig2)
         else:
             st.write("Comparaison impossible car la valeur de cette variable n'est pas renseignée (NaN)")
@@ -568,7 +571,7 @@ def main() :
                                          max_value = 1.0 ,
                                          value = 0.5,
                                           step = 0.1)
-            st.write(' L seuil est : ',risque_threshold)
+            st.write(' Le seuil est : ',risque_threshold)
             seuil_risque = st.sidebar.slider("Seuil de Résolution", 
                                              min_value=0.0, 
                                              max_value=1.0, 
@@ -587,7 +590,9 @@ def main() :
             #Appel de l'API : 
 
             #API_url = "http://127.0.0.1:5000/credit/" + str(id_client)
-            API_url = "https://heroku-api-model-scoring-ds.herokuapp.com/credit/"+ str(id_client)
+            #API_url = "https://heroku-api-model-scoring-ds.herokuapp.com/credit/"+ str(id_client)
+            API_url = "https://mihoubi-api-csm.herokuapp.com/credit/"+ str(id_client)
+            
             
             #API_url = "https://heroku-api-model-scoring-ds.herokuapp.com/prediction_credit"+ str(id_client)
             #API_url = "http://127.0.0.1:5000/credit/" + str(id_client)
